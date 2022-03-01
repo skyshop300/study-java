@@ -2,10 +2,10 @@ package me.syp.demospringdi;
 
 @MyAnnotation
 public class Snack {
-    private String a = "a";
-    private String b = "b";
-    public String c = "c";
-    protected String d = "d";
+    private String a = "stringA";
+    private String b = "stringB";
+    public String c = "stringC";
+    protected String d = "stringD";
 
     public Snack() {
 

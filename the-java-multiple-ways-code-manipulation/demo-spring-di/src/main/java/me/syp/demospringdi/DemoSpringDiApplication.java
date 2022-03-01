@@ -20,26 +20,32 @@ public class DemoSpringDiApplication {
         Class<? extends Snack> aClass = snack.getClass();
         Class<?> aClass1 = Class.forName("me.syp.demospringdi.Snack");  // class
 
-        Arrays.stream(snackClass.getFields()).forEach(System.out::println); // getFields(): public 만 가져온다.
+        System.out.println("[getFields]");
+        Arrays.stream(snackClass.getFields()).forEach(System.out::println);         // getFields(): public 접근제어자만 가져온다.
+        System.out.println("[getDeclaredFields]");
         Arrays.stream(snackClass.getDeclaredFields()).forEach(System.out::println); // getDeclaredFields(): 접근제어자에 상관없이 가져온다.
 
+        System.out.println("[getDeclaredFields] 접근제어자 무력화");                    // 무력화하지 않으면 IllegalAccessException이 발생한다.
         Arrays.stream(snackClass.getDeclaredFields()).forEach(f -> {
             try {
-                f.setAccessible(true);  // 접근제어자 무력화 - Reflection은 접근제어자를 무시할 수도 있다.
+                f.setAccessible(true);  // 접근제어자 무력화 - Reflection은 접근제어자를 무시하여 정보를 가져올 수 있다.
                 System.out.printf("%s %s\n ", f, f.get(snack));
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
         });
 
-        System.out.println("");
+        System.out.println("[getMethods]");
         Arrays.stream(snackClass.getMethods()).forEach(System.out::println);
+        System.out.println("[getConstructors]");
         Arrays.stream(snackClass.getConstructors()).forEach(System.out::println);
+        System.out.println("[getInterfaces]");
         Arrays.stream(snackClass.getInterfaces()).forEach(System.out::println);
 
+        System.out.println("[getSuperclass]");
         System.out.println(snackClass.getSuperclass());
 
-        System.out.println("");
+        System.out.println("[getFields]");
         Arrays.stream(snackClass.getFields()).forEach(f -> {
             int modifiers = f.getModifiers();
             System.out.println("modifiers:" + modifiers);
