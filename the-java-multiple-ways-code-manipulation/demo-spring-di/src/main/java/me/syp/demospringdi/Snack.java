@@ -1,6 +1,6 @@
 package me.syp.demospringdi;
 
-@MyAnnotation
+@MyAnnotation(value="sungyong")
 public class Snack {
     private String a = "stringA";
     private String b = "stringB";

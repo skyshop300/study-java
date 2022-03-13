@@ -53,5 +53,20 @@ public class DemoSpringDiApplication {
             System.out.println(Modifier.isPrivate(modifiers));
             System.out.println(Modifier.isStatic(modifiers));
         });
+
+        /*
+         * [1] Annotation
+         * Annotation은 조회가 되지 않는다.
+         * Annotation은 주석과 동일한 취급을 받는다.
+         * ByteCode를 Loading 했을 떄에는 Annotation 정보를 제외한다.
+         * annotation
+         */
+
+        // Annotation은 조회가 되지 않는다.
+        //
+        //
+        System.out.println("[getAnnotations]");
+        System.out.println("[getAnnotations]");
+        Arrays.stream(MySnack.class.getAnnotations()).forEach(System.out::println);
     }
 }
