@@ -1,32 +1,23 @@
 package me.syp.demospringdi;
 
-@MyAnnotation(value="sungyong")
 public class Snack {
-    private String a = "stringA";
+    public static String a = "stringA";
     private String b = "stringB";
-    public String c = "stringC";
-    protected String d = "stringD";
 
     public Snack() {
 
     }
 
-    public Snack(String a, String b, String c, String d) {
-        this.a = a;
+    public Snack(String b) {
         this.b = b;
-        this.c = c;
-        this.d = d;
     }
 
-    private void f() {
-
+    public void c()     {
+        System.out.println("C");
     }
 
-    public void g() {
-
+    public int sum(int left, int right) {
+        return left + right;
     }
 
-    public void h() {
-
-    }
 }
